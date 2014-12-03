@@ -1,0 +1,23 @@
+{
+  "name": "webkithello",
+  "version": "0.0.1",
+  "description": "Node Webkit Hello World",
+  "main": "index.html",
+  "window": {
+    "title": "HelloWebkit",
+    "toolbar": false,
+    "icon": "py.ico",
+    "position": "center",
+    "show": false
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Gyengus(Tm)",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^3.8.10",
+    "gulp-util": "^3.0.1",
+    "node-webkit-builder": "^0.3.0"
+  }
+}

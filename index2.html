@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='UTF-8'>
+	<title>Hello Node Webkit - másik oldal</title>
+	<link rel='stylesheet' href='style.css' type='text/css' />
+	<script>
+		var gui = require('nw.gui');
+		var win = gui.Window.get();
+		
+		var menubar = new gui.Menu({
+			type: 'menubar'
+		});
+		
+		var file = new gui.Menu();
+		file.append(new gui.MenuItem({
+			label: '&Névjegy',
+			click: function() {
+				alert('Írta: Gyengus(Tm)');
+			}
+		}));
+		
+		menubar.append(new gui.MenuItem({ label: 'File', submenu: file}));
+		win.menu = menubar;
+	</script>
+</head>
+<body>
+	<h1>Hello Node Webkit - másik oldal</h1>
+	<pre id='filedata'>Fájl betöltése...</pre>
+	<div id='msg'>Fájl mentése...</div>
+	<br />
+	
+	<a href='#' onclick='win.close(); return false;'>Kilépés</a> | 
+	<a href='index.html'>Vissza</a>
+	<script>
+		var path = require('path');
+		//console.log(path.dirname(process.execPath));
+		
+		var fs = require('fs');
+		fs.readFile(path.dirname(process.execPath) + '\\hello.txt', {'encoding': 'utf-8'}, function (err, data) {
+			if (err) {
+				document.getElementById('filedata').innerHTML = err;
+			} else {
+				document.getElementById('filedata').innerHTML = data;
+			}
+			// Módosítsuk a fájl tartalmát
+			var uj = 'Ez a hello.txt új tartalma.';
+			fs.writeFile(path.dirname(process.execPath) + '\\hello.txt', uj, function(err) {
+				if (err) {
+					document.getElementById('msg').innerHTML = err;
+				} else {
+					document.getElementById('msg').innerHTML = 'Fájl módosítva.';
+				}
+			});
+		});
+		
+	</script>
+</body>
+</html>

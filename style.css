@@ -1,0 +1,23 @@
+pre {
+	background: #cccccc;
+	padding: 5px;
+}
+
+h1 {
+	font-size: 26px;
+}
+
+a {
+	text-decoration: none;
+	color: blue;
+	font-weight: bold;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+#msg {
+	color: red;
+	font-size: 14px;
+}

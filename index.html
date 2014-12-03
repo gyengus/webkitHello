@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='UTF-8'>
+	<title>Hello Node Webkit</title>
+	<link rel='stylesheet' href='style.css' type='text/css' />
+	<script>
+		var gui = require('nw.gui');
+		var win = gui.Window.get();
+		
+		var menubar = new gui.Menu({
+			type: 'menubar'
+		});
+		
+		var file = new gui.Menu();
+		file.append(new gui.MenuItem({
+			label: '&Névjegy',
+			click: function() {
+				alert('Írta: Gyengus(Tm)');
+			}
+		}));
+		
+		menubar.append(new gui.MenuItem({ label: 'File', submenu: file}));
+		win.menu = menubar;
+		
+		onload = function() {
+			win.show();
+		}
+	</script>
+</head>
+<body>
+	<h1>Hello Node Webkit</h1>
+	<a href='#' onclick='win.close(); return false;'>Kilépés</a> | 
+	<a href='index2.html'>Tovább</a>
+	
+</body>
+</html>
