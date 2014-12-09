@@ -3,7 +3,7 @@ webkitHello
 
 Node Webkit Hello World application
 
-Build
+<h3>Build</h3>
 <pre>
 $ npm install
 $ gulp nw
